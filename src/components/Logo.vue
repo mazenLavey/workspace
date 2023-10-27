@@ -4,7 +4,7 @@
 
 <template>
     <div class="Logo">
-        DT
+        WS
     </div>
 </template>
 
@@ -16,7 +16,6 @@
     justify-content: center;
     font-size: var(--font-700);
     font-weight: 600;
-    letter-spacing: 3px;
     padding-bottom: 16px;
     margin-bottom: 16px;
 
