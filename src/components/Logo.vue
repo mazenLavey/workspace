@@ -1,10 +1,9 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
     <div class="Logo">
-        WS
+        <img class="Logo__Img" src="@/assets/icons/workspace-logo.png" alt="logo">
     </div>
 </template>
 
@@ -14,8 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--font-700);
-    font-weight: 600;
+    filter: opacity(0.8);
     padding-bottom: 16px;
     margin-bottom: 16px;
 
@@ -30,5 +28,11 @@
         border-radius: 4px;
         background-color: var(--divider-grey-400);
     }
+}
+
+.Logo__Img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 </style>

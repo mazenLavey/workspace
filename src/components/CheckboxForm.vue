@@ -1,27 +1,37 @@
 <script setup lang="ts">
 defineProps({
-    name: {
+    checked: {
         required: true,
-        type: String,
+        type: Boolean,
     },
     id: {
         required: true,
         type: String,
     },
-    checked: {
+    name: {
         required: true,
-        type: Boolean,
+        type: String,
     },
     label: {
         required: true,
         type: String,
     },
 })
+
+const emit = defineEmits(["update:checked"])
+
+const handleChange = (e: Event) => {
+    const element = (e.target as HTMLInputElement)
+
+    if (element) {
+        emit('update:checked', element.checked)
+    }
+}
 </script>
 
 <template>
     <div class="CheckboxForm__Wrapper">
-        <input class="CheckboxForm" type="checkbox" :name="name" :id="id" :checked="checked">
+        <input class="CheckboxForm" type="checkbox" :name="name" :id="id" :value="checked" @input="handleChange">
         <label class="CheckboxForm__label" :for="id">{{ label }}</label>
     </div>
 </template>
@@ -38,7 +48,9 @@ defineProps({
     width: 18px;
     height: 18px;
     border-radius: 3px;
+    flex-shrink: 0;
     border: 1px solid var(--color-border);
+    outline: none;
     cursor: pointer;
 
     &::before {
@@ -58,6 +70,7 @@ defineProps({
         content: url("https://api.iconify.design/fa-solid/check.svg?color=white&width=12&height=12");
     }
 
+    &:focus,
     &:hover {
         border-color: var(--color-primary);
     }
@@ -66,6 +79,7 @@ defineProps({
 .CheckboxForm__label {
     color: var(--text-dark-400);
     font-size: var(--font-300);
+    word-break: break-all;
     cursor: pointer;
 
     &::first-letter {

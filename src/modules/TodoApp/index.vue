@@ -5,7 +5,6 @@ import TasksList from "./TasksList/index.vue";
 
 <template>
     <section class="TodoApp">
-        Todo app
         <TaskCreator />
         <TasksList />
     </section>

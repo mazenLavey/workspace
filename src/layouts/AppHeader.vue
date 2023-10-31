@@ -13,7 +13,7 @@ import Logo from '@/components/Logo.vue';
 
 <style lang="scss" scoped>
 .AppHeader {
-    width: 80px;
+    width: 60px;
     height: 100%;
     padding: 20px 10px;
     background-color: var(--background-light-white)

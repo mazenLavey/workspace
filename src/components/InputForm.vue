@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { defineEmits } from "vue"
+
 defineProps({
     id: {
         required: true,
@@ -12,12 +14,25 @@ defineProps({
         required: false,
         type: String
     },
-})
+    modelValue: {
+        type: String
+    },
+});
+
+
+const emit = defineEmits(['update:modelValue'])
+
+const handleChange = (e: Event) => {
+    const val = (e.target as HTMLInputElement).value
+    emit('update:modelValue', val)
+}
+
 </script>
 
 <template>
     <div class="InputForm__Wrapper">
-        <input v-bind="$attrs" class="InputForm" type="text" :name="name" :id="id" :placeholder="placeholder">
+        <input class="InputForm" type="text" :name="name" :id="id" :placeholder="placeholder" :value="modelValue"
+            @input="handleChange">
     </div>
 </template>
 
@@ -25,14 +40,14 @@ defineProps({
 <style lang="scss" scoped>
 .InputForm__Wrapper {
     display: flex;
-    padding: 10px;
     border-radius: 8px;
     height: 100%;
     flex-grow: 1;
     font-size: var(--font-300);
     border: 1px solid var(--color-border);
     background-color: var(--white-400);
-    transition: var(--transition-300);
+    transition: var(--transition-fast);
+    overflow: hidden;
 
     &:focus-within,
     &:hover {
@@ -41,6 +56,7 @@ defineProps({
 }
 
 .InputForm {
+    padding: 10px;
     background-color: transparent;
     outline: none;
     border: none;

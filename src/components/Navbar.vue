@@ -18,7 +18,7 @@ import { Icon } from '@iconify/vue';
 </template>
 
 <style lang="scss" scoped>
-$transition-duarition: var(--transition-300);
+$transition-duarition: var(--transition-fast);
 
 .Navbar {
     display: flex;
@@ -31,7 +31,6 @@ $transition-duarition: var(--transition-300);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 20px;
 
     &::after {
         content: '';

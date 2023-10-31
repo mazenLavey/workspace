@@ -10,6 +10,7 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
   },
   "dependencies": {
+    "nanoid": "^5.0.2",
     "normalize.css": "^8.0.1",
     "pinia": "^2.1.7",
     "vue": "^3.3.4",

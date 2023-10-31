@@ -30,7 +30,7 @@ defineProps({
     color: var(--text-dark-400);
     text-transform: capitalize;
 
-    &:hover {
+    &:hover, &:focus {
         background-color: var(--color-primary);
         color: var(--text-light-400);
     }
